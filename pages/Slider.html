@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"> 
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<style>
+  #reservation{
+    float: left;
+    margin-left: 300px;
+    width: 700px;
+    margin-top: 215px;
+  }
+</style>
+<body>
+    <div class="container">
+        <h1>JQUERY SESSION -ACCORDION</h1>
+        <div class="row">
+            <div class="col-1">
+                <li>
+                    <ul><a href="../Accordion.html">accordion</a></ul>
+                    <ul><a href="Autocomplete.html">Autocomplete</a></ul>
+                    <ul><a href="Button.html">Button</a></ul>
+                    <ul><a href="Checkboxradio.html">Checkboxradio</a></ul>
+                    <ul><a href="Controlgroup.html">Controlgroup</a></ul>
+                    <ul><a href="Datepicker.html">Datepicker</a></ul>
+                    <ul><a href="Dialog.html">Dialog</a></ul>
+                    <ul><a href="Menu.html">Menu</a></ul>
+                    <ul><a href="Progressbar.html">Progressbar</a></ul>
+                    <ul><a href="Selectmenu.html">Selectmenu</a></ul>
+                    <ul><a href="Slider.html">Slider</a></ul>
+                    <ul><a href="Spinner.html">Spinner</a></ul>
+                    <ul><a href="Tabs.html">Tabs</a></ul>
+                    <ul><a href="Tooltip.html">Tooltip</a></ul>
+                
+                </li>
+            </div>
+          
+<form id="reservation">
+    <label for="minbeds">Minimum number of beds</label>
+    <select name="minbeds" id="minbeds">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+    </select>
+  </form>
+   
+        </div>
+    </div>  
+    
+    <footer>
+        <p>College of Information and Computing Sciences &copy; 2022</p>  
+    </footer>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          var select = $( "#minbeds" );
+          var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+            min: 1,
+            max: 6,
+            range: "min",
+            value: select[ 0 ].selectedIndex + 1,
+            slide: function( event, ui ) {
+              select[ 0 ].selectedIndex = ui.value - 1;
+            }
+          });
+          $( "#minbeds" ).on( "change", function() {
+            slider.slider( "value", this.selectedIndex + 1 );
+          });
+        } );
+        </script>
+</body>
+</html>
